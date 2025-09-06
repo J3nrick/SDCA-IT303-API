@@ -1,11 +1,11 @@
-import { createServer } from 'node:http';
-const hostname = '127.0.0.1';
-const port = 3000;
-const server = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+import express from 'express'
+
+const app = express()
+
+app.use('/api/register' , (req,res) => {
+  res.send('Sample register endpoint')
+})
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000.')
+})
